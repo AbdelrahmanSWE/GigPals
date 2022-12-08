@@ -21,7 +21,7 @@ class Post{
 
 
 
-    function createPost($ClientID,$PostTitle,$PostDesc,$PostDate,$Budget,$PayType){
+    function createPost($ClientID,$PostTitle,$PostDesc,$Budget,$PayType){
         $PostDate=date("dd/mm/yyyy");
         $this->db->insert("INSERT INTO post(PostTitle,PostDesc,Budget,PostCreatDate,PayType,ClientID) VALUES('$PostTitle','$PostDesc','$PostDate','$Budget','$PayType','$ClientID')");
         $this->db->close();
@@ -87,6 +87,11 @@ class Post{
         $post=$this->db->select("SELECT * FROM post WHERE PostTitle='$input' OR PostCreateDate='$input' OR user.Username='$input'");
         $this->db->close();
         return $post;
+    }
+
+    function removePost($PostID){
+        $this->db->delete("DELETE FROM post WHERE PostID='$PostID'");
+        $this->db->close();
     }
     
 }

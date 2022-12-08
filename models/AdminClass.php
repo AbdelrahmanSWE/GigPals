@@ -43,18 +43,8 @@ class Admin{
     $this->db->close();
   }
 
-  function getadminID(){
-    return $this->adminID;
-  }
 
-  function getusername(){
-    return $this->username;
-  }
-
-  function getpassword(){
-    return $this->password;
-  }
-
+  
   function updatePassword($newPass){
     $changePassFor=$_SESSION['Username'];
     $this->db->update("UPDATE admin SET Password='$newPass' WHERE Username='$changePassFor' ");

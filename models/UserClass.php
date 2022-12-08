@@ -1,7 +1,7 @@
 <?php
 
 
-class user{
+class User{
   private $UserID;
   private $FName;
   private $LName;
