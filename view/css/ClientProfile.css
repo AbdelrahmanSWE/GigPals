@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+  background-color:#3282B8;
+  color:#1B262C;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.gigPal_logo {
+  font-family: 'Raleway', sans-serif;
+  font-style: italic;
+  --bs-navbar-brand-color: #1B262C;
+  --bs-navbar-brand-font-size: 1.8rem;
+}
+.h1_yourProfileInfo{
+  font-weight: lighter;
+  color:#1B262C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hr_style{
+    border-style: none;
+    border-top-style: dotted;
+    border-color: black;
+    border-width: 5px;
+    width: 15%;}
+
+.hr_row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_items{
+color:#1B262C;
+text-decoration: underline;
+display: flex;
+
+}
+.main_page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.post_container{
+  margin-top: 0px;
+  padding-top: 20px;
+}
+.post{
+  border-radius: 15% 15% 15% 15% / 15% 15% 15% 15% ;
+  height: auto ;
+  width: auto;
+  background-color: #fff;
+}
+.profile_info_container{
+  margin-top: 75px;
+  padding-top: 75px;
+}
+.profile_info{
+  border-radius: 15% 15% 15% 15% / 15% 15% 15% 15% ;
+  height: auto ;
+  width: auto;
+  background-color: #fff;
+  padding: 40px 40px 40px 40px;
+}
+.history_container{
+  padding-top: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h1_yourProfileInfo{
+  background-color: #FFFFFF;
+  padding: 20px 20px 20px 20px;
+}
+.h1_yourSavedPosts{
+  background-color: #BBE1FA;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+  color: #fff;
+  font-weight: lighter;
+}
+.profile_pic{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 40px 0 0 40px;
+}
+.name{
+  margin-top: 40px;
+  text-decoration: underline;
+}
+.info_container{
+  margin-top: 40px;
+}
+.info{
+  justify-content: center;
+}
+.info_name{
+  padding-left: 20px;
+}
+#userImg{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.post_descript{
+  margin: 10px 40px 40px 40px;
+}
+.descript_text{
+  font-size: 18px;
+  padding-left: 20px;
+  padding-right: : 20px;
+  color: #1B262C;
+
+}
+.change_pass_btn{
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.propsal_carosel_container{
+  margin: 0px 40px 200px 40px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.propsal_carosel{
+  margin: 10px 40px 40px 10px;
+  padding: 20px 30px 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide{
+  text-align: center;
+}
+.row{
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.right_column{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.proposal{
+
+}
+.proposal_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.proposal_header{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.proposal_descipt{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left:40px;
+  padding-right:40px;
+}
+.add_proposal_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.save_proposal_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-shape-divider-top-1670530548 {
+  padding-left: 0;
+  padding-right: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.custom-shape-divider-top-1670530548 svg {
+    position:fixed;
+    display: block;
+    width: calc(125% + 1.3px);
+    height: 178px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1670530548 .shape-fill {
+    fill: #FFFFFF;
+}
+.label_style{
+  color: #3282B8;
+  font-weight: bolder;
+}
+#btnAddLight{
+  font-weight: lighter;
+}
+#btnSaveLight{
+  font-weight: lighter;
+}
