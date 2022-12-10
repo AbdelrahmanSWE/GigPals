@@ -14,7 +14,7 @@
 <body>
   <nav id="navbar" class="navbar fixed-top ">
     <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1" style="--bs-navbar-brand-font-size:2rem;">GigPals</span>
+      <span class="navbar-brand mb-0 h1">GigPals</span>
     </div>
   </nav>
   <div class="container">
@@ -57,41 +57,25 @@
             </div>
         </form>
       </div>
-        <div class="signup-form">
-          <div class="title">Signup</div>
-        <form action="#">
-            <div class="input-boxes">
-              <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="First Name" required>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Last Name" required>
-              </div>
-              <div class="input-box">
-                <i class="fa fa-mobile"></i>
-                <input type="text" placeholder="Phone Number" required>
-              </div>
-              <div class="input-box">
-                <i class="fa fa-camera"></i>
-                <input type="file" placeholder="profile Image" required>
-              </div>
-                <i class="fa fa-users" ></i>
-                <label id="role_label" for="role">  Role</label>
-              <div class="btn-group" id="role" role="group" aria-label="Basic radio toggle button group">
-                  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                  <label class="btn btn-outline-primary" for="btnradio1">Client</label>
-
-                  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                  <label class="btn btn-outline-primary" for="btnradio2">Freelancer</label>
-              </div>
-              <div class="button input-box">
-                <input type="submit" value="Submit">
-              </div>
-              <div class="text sign-up-text">Already have an account? <label id="sign_color" for="flip">Login now</label></div>
-            </div>
-      </form>
+      <div class="login-form">
+        <div id="login_title" class="title">Login</div>
+      <form action="#">
+        <div class="input-boxes">
+          <div class="input-box">
+            <i class="fa fa-user"></i>
+            <input type="text" placeholder="Username" required>
+          </div>
+          <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="text"><a href="#">Forgot password?</a></div>
+          <div id="login_submit" class="button input-box">
+            <input type="submit" value="Submit">
+          </div>
+        </div>
+    </form>
+  </div>
     </div>
     </div>
     </div>

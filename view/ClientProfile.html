@@ -13,6 +13,43 @@
     <title>GigPals | My Profile</title>
   </head>
   <body>
+      <!--ADD POST MODAL-->
+    <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="postModalLabel">Add Proposal</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+            <form>
+              <div class="mb-3">
+                <label for="ProposalDescription" class="form-label">Description:</label>
+                <input type="text" class="form-control" id="ProposalDescription" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Descripe your job requirments in genral to help catch the attention of more Freelancers.</div>
+              </div>
+              <div class="mb-3">
+                <label for="jobType" class="form-label">Job type:</label>
+                <input type="text" class="form-control" id="jobType">
+                <div id="emailHelp" class="form-text">Fixed/Hourly</div>
+              </div>
+              <div class="mb-3">
+                <label for="Budget" class="form-label">Budget:</label>
+                <input type="number" class="form-control" id="Budget">
+              </div>
+              <button type="submit" class="btn btn-primary">Post</button>
+          </form>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Discard Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Modal change password -->
     <div class="modal fade" id="changePassWordModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
@@ -194,6 +231,15 @@
                                <div class="row proposal_descipt">
                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus mauris, facilisis eget mollis quis, rhoncus in urna. In vitae mauris sollicitudin orci dignissim aliquam. Maecenas turpis felis</p>
                               </div>
+                              <!--ACCEPT/REFUSE PROPOSAL BTNS-->
+                              <div class="row">
+                                <div class="col-6">
+                                  <button type="button" name="button" class="btn btn-success">Accept Proposal</button>
+                                </div>
+                                <div class="col">
+                                  <button type="button" name="button" class="btn btn-danger">Refuse Proposal</button>
+                                </div>
+                              </div>
                              </form>
                            </div>
                       </div>
@@ -215,6 +261,15 @@
                           <div class="row proposal_descipt">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus mauris, facilisis eget mollis quis, rhoncus in urna. In vitae mauris sollicitudin orci dignissim aliquam. Maecenas turpis felis</p>
                          </div>
+                         <!--ACCEPT/REFUSE PROPOSAL BTNS-->
+                         <div class="row">
+                           <div class="col-6">
+                             <button type="button" name="button" class="btn btn-success">Accept Proposal</button>
+                           </div>
+                           <div class="col">
+                             <button type="button" name="button" class="btn btn-danger">Refuse Proposal</button>
+                           </div>
+                         </div>
                         </form>
                       </div>
                       </div>
@@ -235,6 +290,15 @@
 
                           <div class="row proposal_descipt">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus mauris, facilisis eget mollis quis, rhoncus in urna. In vitae mauris sollicitudin orci dignissim aliquam. Maecenas turpis felis</p>
+                         </div>
+                         <!--ACCEPT/REFUSE PROPOSAL BTNS-->
+                         <div class="row">
+                           <div class="col-6">
+                             <button type="button" name="button" class="btn btn-success">Accept Proposal</button>
+                           </div>
+                           <div class="col">
+                             <button type="button" name="button" class="btn btn-danger">Refuse Proposal</button>
+                           </div>
                          </div>
                         </form>
                       </div>
@@ -264,7 +328,7 @@
     </div>
 
     <div class="col-2 right_column">
-      <!--RIght column of main page !!LEAVE EMPTY!!-->
+      <button id="addPostBtn" type="button" name="button" class="btn btn-dark add_post_btn fa fa-plus" data-bs-toggle="modal" data-bs-target="#postModal"> </button>
     </div>
 
   </div>

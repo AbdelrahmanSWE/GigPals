@@ -215,3 +215,19 @@ display: flex;
 #btnSaveLight{
   font-weight: lighter;
 }
+.add_post_btn {
+  background-color : #1B262C;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 50%;
+  border-color: #46b8da;
+  width: 75px;
+  height: 75px;
+  font-size:30px;
+}
+
+#addPostBtn {
+  position: fixed;
+  bottom: 1px;
+  right: 10px;
+}
