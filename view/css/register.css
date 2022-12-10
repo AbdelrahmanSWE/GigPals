@@ -26,6 +26,7 @@ body{
   font-style: italic;
   color: white ;
   --bs-navbar-brand-color: #fff ;
+  --bs-navbar-brand-font-size:1.8rem;
 }
 
 
@@ -49,9 +50,7 @@ body{
   transform-origin: right;
   transform-style: preserve-3d;
 }
-.container #flip:checked ~ .cover{
-  transform: rotateY(180deg);
-}
+
  .container .cover .front,
  .container .cover .back{
   position: absolute;
