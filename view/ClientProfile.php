@@ -1,3 +1,6 @@
+<?php session_start();
+include_once '../controller/GetClientPosts.php';
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@1,700&family=Montserrat:ital,wght@0,800;1,700;1,900&family=Raleway:ital,wght@1,900&display=swap" rel="stylesheet">
-    <title>GigPals | My Profile</title>
+    <title>GigPals | Client Profile</title>
   </head>
   <body>
       <!--ADD POST MODAL-->
@@ -24,22 +27,26 @@
 
           <div class="modal-body">
 
-            <form>
+            <form action="../controller/AddPostController.php" method="post">
+             <div class="mb-3">
+                <label for="ProposalDescription" class="form-label">Post Title:</label>
+                <input type="text" class="form-control" name="PostTitle" id="ProposalDescription" aria-describedby="emailHelp">
+              </div>
               <div class="mb-3">
                 <label for="ProposalDescription" class="form-label">Description:</label>
-                <input type="text" class="form-control" id="ProposalDescription" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="PostDesc" id="ProposalDescription" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">Descripe your job requirments in genral to help catch the attention of more Freelancers.</div>
               </div>
               <div class="mb-3">
                 <label for="jobType" class="form-label">Job type:</label>
-                <input type="text" class="form-control" id="jobType">
-                <div id="emailHelp" class="form-text">Fixed/Hourly</div>
+                <input type="text" name="PayType" class="form-control" id="jobType">
+                <div id="emailHelp" class="form-text">fixed/hourly</div>
               </div>
               <div class="mb-3">
                 <label for="Budget" class="form-label">Budget:</label>
-                <input type="number" class="form-control" id="Budget">
+                <input type="number" class="form-control" name="Budget" id="Budget">
               </div>
-              <button type="submit" class="btn btn-primary">Post</button>
+              <input type="submit" name="Create" class="btn btn-primary" value="Post">
           </form>
 
           </div>
@@ -94,15 +101,14 @@
         <nav class="navbar navbar-expand-lg  fixed-top">
         <a href="#" class="ms-4 navbar-brand gigPal_logo" style="">GigPals</a>
         <div class="ms-auto">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </form>
+          
         </div>
 
         <ul class="navbar-nav ms-auto">
+          
           <li class="nav-item">
-            <a href="..\view\wallpage.html" class="nav-link me-4 nav_items float-right fa fa-chevron-circle-left" style="">Back</a>
+            <a href="../controller/LogoutController.php" class="nav-link me-4 nav_items float-right fa fa-chevron-circle-left">logout</a>
+            
           </li>
         </ul>
       </nav>
@@ -118,18 +124,18 @@
         <div class="row profile_info_container">
         <form class="" action="" method="post">
           <div class="profile_info">
-            <h1 class="h1_yourProfileInfo">Your Profile Info</h1>
+            <h1 class="h1_yourProfileInfo">Profile Info</h1>
 
             <div class="row info_imgEmail">
               <div class="col-sm-auto">
-                <img id="userImg" src="..\view\images\manAtWorkLaptop2.jpg" alt="">
+                <img id="userImg" src="<?php echo $savedposts[0]['ProfileImg']; ?>" alt="">
               </div>
               <div class="col-8">
                 <div class="row info_name">
                   <label class="label_style" for="firstName">First Name :</label>  <!--FIRSTNAME-->
-                  <h2 id="firstName">Abdalrahman</h2>
-                  <label class="label_style" for="lastName">Last Name :</label>   <!--LASTNAME-->
-                  <h3 id="lastName">Sayed</h3>
+                  <h2 id="firstName"><?php echo $_SESSION['FName']; ?></h2>
+                  <label class="label_style" for="lastName">Last Name:</label>   <!--LASTNAME-->
+                  <h3 id="lastName"><?php echo $_SESSION['LName']; ?></h3>
                   <label class="label_style" for="userRole">Role :</label>          <!--USER ROLE FREELANCER/CLIENT-->
                   <h3 id="userRole">Client</h3>
                 </div>
@@ -143,13 +149,13 @@
 
             <div class="row info_phone">
               <label class="label_style" for="userName">Username :</label>   <!--USERNAME-->
-              <h2 id="userName">OctopusPrime</h2>
+              <h2 id="userName"><?php echo $_SESSION['Username']; ?></h2>
 
               <label class="label_style" for="email">E-Mail :</label>       <!--EMAIL-->
-              <h2 id="phoneNumber">example@mail.com</h2>
+              <h2 id="phoneNumber"><?php echo $_SESSION['Email']; ?></h2>
 
               <label class="label_style" for="phoneNumber">Phone Number :</label>     <!--PHONE NUMBER-->
-              <h2 id="phoneNumber">0122639999</h2>
+              <h2 id="phoneNumber"><?php echo $_SESSION['PhoneNo']; ?></h2>
             </div>
 
             <div class="row hr_row">       <!--Break line between post content and proposal-->
@@ -159,7 +165,6 @@
             <div class="row">
               <div class="col-8">
                 <label class="label_style" for="passWord">Password :</label>      <!--PASSWORD-->
-                <h2 id="passWord">*********</h2>
               </div>
               <div class="col-4">     <!--CHANGE PASSWORD BUTTON :TRIGGERS CHANGE PASS WORD MODAL-->
                 <button type="button" name="button" class="btn btn-outline-danger change_pass_btn"data-bs-toggle="modal" data-bs-target="#changePassWordModal" >Change Password</button>
@@ -171,32 +176,34 @@
       </div>
       <div class="row history_container">
         <div class="row">
-          <h1 class="h1_yourSavedPosts">Your Posts</h1>
+          <h1 class="h1_yourSavedPosts">Posts</h1>
         </div>
 
         <div class="column col"> <!--Post area-->
+        <?php include_once '../controller/GetClientPosts.php';
+        for ($i=0;$i<$numberOfSavedPosts['numberOfSavedPosts'];$i++){?>
           <div class="post_container">
           <form class="" action="" method="post">
             <div class="post">
               <div class="row post_header">
                 <div class="col-md-auto">
-                  <img class="profile_pic" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="">
+                  <img class="profile_pic" src="<?php echo $savedposts[$i]['ProfileImg']?>" alt="">
                 </div>
                 <div id="user_name" class="form-text col-6 name">
-                  <label for="">Ahmed</label>
-                  <h2>Webdevlopment</h2>
+                  <label for=""><?php echo $savedposts[$i]['FName'], " ", $savedposts[$i]['LName']; ?></label>
+                  <h2><?php echo $savedposts[$i]['PostTitle']?></h2>
                 </div>
                 <div class="info_container col">
-                  <p class="row info ">DD/MM/YYYY</p>  <!--Date-->
-                  <p class="row info ">Hourly/Fixed</p> <!--Payment type-->
-                  <p class="row info ">1000$</p>   <!--budget-->
+                  <p class="row info "><?php echo $savedposts[$i]['PostCreateDate'];?></p>  <!--Date-->
+                  <p class="row info "><?php echo $savedposts[$i]['PayType'];?></p> <!--Payment type-->
+                  <p class="row info "><?php echo $savedposts[$i]['Budget'];?>$</p>   <!--budget-->
                 </div>
 
               </div>
 
               <div class="row post_descript">
                 <div class="form-text descript_text">   <!--Job Description-->
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus mauris, facilisis eget mollis quis, rhoncus in urna. In vitae mauris sollicitudin orci dignissim aliquam. Maecenas turpis felis, imperdiet vel pretium vitae, facilisis a est. Curabitur mollis molestie congue. Mauris purus sapien, placerat maximus lectus ac, varius feugiat nisi. Aliquam eget quam erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut odio lacus, ultricies sed feugiat sed, efficitur nec enim. Sed a iaculis risus. Morbi sed lorem tellus. Phasellus eu vestibulum orci. Morbi pretium molestie vehicula. Fusce id faucibus nisl. Aenean ultrices diam eget lacus tristique, dapibus ultricies sapien maximus.
+                <?php echo $savedposts[$i]['PostDesc'];?>
                 </div>
               </div>
 
@@ -207,120 +214,66 @@
 
 
             <div class="row propsal_carousel_container">
-                <div id="propsal_carousel" class="carousel slide propsal_carosel carousel-dark" data-bs-ride="true">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#propsal_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"  ></button>
-                    <button type="button" data-bs-target="#propsal_carousel" data-bs-slide-to="1"  aria-label="Slide 2"  ></button>
-                    <button type="button" data-bs-target="#propsal_carousel" data-bs-slide-to="2"  aria-label="Slide 3"  ></button>
-                  </div>
+                <div id="propsal_carousel slide" class="carousel slide propsal_carosel carousel-dark" data-bs-ride="carousel">
+                  
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div class="d-block w-100 slide">
-                           <!--Form for proposals -->
-                             <div class="proposal row ">
-                             <form class="" action="index.html" method="post">
-                               <div class="row proposal_header">
-                                 <div  class=" col-8 proposal_name">
-                                   <p class="proposal_name">Ali Mohammed</p>
-                                 </div>
-                                  <div class="col-4">
-                                     <p class="info ">1000$</p>
-                                  </div>
-                                </div>
-
-                               <div class="row proposal_descipt">
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus mauris, facilisis eget mollis quis, rhoncus in urna. In vitae mauris sollicitudin orci dignissim aliquam. Maecenas turpis felis</p>
-                              </div>
-                              <!--ACCEPT/REFUSE PROPOSAL BTNS-->
-                              <div class="row">
-                                <div class="col-6">
-                                  <button type="button" name="button" class="btn btn-success">Accept Proposal</button>
-                                </div>
-                                <div class="col">
-                                  <button type="button" name="button" class="btn btn-danger">Refuse Proposal</button>
-                                </div>
-                              </div>
-                             </form>
-                           </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-block w-100 slide">
-                        <!--Form for proposals -->
-                        <div class="proposal row ">
-                        <form class="" action="index.html" method="post">
-                          <div class="row proposal_header">
-                            <div  class=" col-8 proposal_name">
-                              <p class="proposal_name">Ali Mohammed</p>
-                            </div>
-                             <div class="col-4">
-                                <p class="info ">1000$</p>
-                             </div>
-                           </div>
-
-                          <div class="row proposal_descipt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus mauris, facilisis eget mollis quis, rhoncus in urna. In vitae mauris sollicitudin orci dignissim aliquam. Maecenas turpis felis</p>
-                         </div>
-                         <!--ACCEPT/REFUSE PROPOSAL BTNS-->
-                         <div class="row">
+                  <?php
+        include_once '../models/ProposalClass.php';
+        include_once '../models/PostClass.php';
+        $postno = new Post();
+        $proposal = new proposal();
+        
+        $numberOfProposals = $postno->findProposalsNumber($savedposts[$i]['PostID']);
+        $proposals=$proposal->displayProposals($savedposts[$i]['PostID']);
+        
+        
+        for ($j = 0; $j < $numberOfProposals; $j++) {
+                  ?>
+                  <div class="carousel-item <?php if ($j==0){ echo 'active';?><?php } ?>">
+                    <div class="d-block w-100">
+                      <!--Form for proposals -->
+                      <div class="proposal row ">
+                      <div class="row">
+                          <form action="../controller/AcceptProposalController.php" method="post">
+                            <input type="hidden" name="PostID" value="<?php echo $proposals[$j]['ID'];?>"> 
+                            <input type="hidden" name="PPostID" value="<?php echo $savedposts[$i]['PostID'];?>"> 
                            <div class="col-6">
-                             <button type="button" name="button" class="btn btn-success">Accept Proposal</button>
+                             <button type="submit" name="acceptance" class="btn btn-success" value="1">
                            </div>
-                           <div class="col">
-                             <button type="button" name="button" class="btn btn-danger">Refuse Proposal</button>
-                           </div>
-                         </div>
-                        </form>
-                      </div>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-block w-100 slide">
-                        <!--Form for proposals -->
-                        <div class="proposal row ">
-                        <form class="" action="index.html" method="post">
-                          <div class="row proposal_header">
-                            <div  class=" col-8 proposal_name">
-                              <p class="proposal_name">Ali Mohammed</p>
-                            </div>
-                             <div class="col-4">
-                                <p class="info ">1000$</p>
-                             </div>
-                           </div>
-
-                          <div class="row proposal_descipt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tellus mauris, facilisis eget mollis quis, rhoncus in urna. In vitae mauris sollicitudin orci dignissim aliquam. Maecenas turpis felis</p>
-                         </div>
-                         <!--ACCEPT/REFUSE PROPOSAL BTNS-->
-                         <div class="row">
                            <div class="col-6">
-                             <button type="button" name="button" class="btn btn-success">Accept Proposal</button>
+                             <button type="submit" name="refuseal" class="btn btn-danger" value="0">
                            </div>
-                           <div class="col">
-                             <button type="button" name="button" class="btn btn-danger">Refuse Proposal</button>
+                          </form>
+                         </div>
+                        <div class="row proposal_header">
+                          <div  class=" col-8 proposal_name">
+                            <p class="proposal_name"><?php echo $proposals[$j]['FName']," ",$proposals[$j]['LName']; ?></p>
+                          </div>
+                           <div class="col-4">
+                              <p class="info "><?php echo $proposals[$j]['PBudget']?>$</p>
                            </div>
                          </div>
-                        </form>
-                      </div>
-                      </div>
+
+                        <div class="row proposal_descipt">
+                          <p><?php echo $proposals[$j]['PDesc'];?></p>
+                       </div>
+                      
                     </div>
+                    </div>
+                  
+                    </div>
+                  <?php }?>
+                  
                   </div>
                   <!--Navgatiion buttons for proposals-->
-                  <button class="carousel-control-prev " type="button" data-bs-target="#propsal_carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#propsal_carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
+                  
                 </div>
             </div>
 
             </div>
-          </form>
+          
         </div>
-
+          <?php }?>
       </div>
 
       </div>
@@ -340,3 +293,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
 </html>
+<!--<div class="row">
+                          <form action="../controller/AcceptProposalController.php" method="post">
+                            <input type="hidden" name="PostID" value="<?php echo $savedposts[$i]['PostID'];?>"> 
+                           <div class="col-6">
+                             <button type="submit" name="acceptance" class="btn btn-success" value="1">
+                           </div>
+                           <div class="col">
+                             <button type="submit" name="acceptance" class="btn btn-danger" value="0">
+                           </div>
+                          </form>
+                         </div>-->

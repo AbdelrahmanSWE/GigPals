@@ -12,7 +12,7 @@ class Admin{
   function __construct()
   {
     include_once "../include/DatabaseConnectClass.php";
-    $db  = new Database();
+    $this->db  = new Database();
   }
 
   function login($username,$password){
@@ -39,20 +39,13 @@ class Admin{
     unset($_SESSION['Username']);
     unset($_SESSION['UserRole']);
     session_destroy();
-    header("location:../index.php");
+    header("location:../index.html");
     $this->db->close();
   }
 
 
   
-  function updatePassword($newPass){
-    $changePassFor=$_SESSION['Username'];
-    $this->db->update("UPDATE admin SET Password='$newPass' WHERE Username='$changePassFor' ");
-    $this->password=$newPass;
-    session_start();
-    $_SESSION['Password']=$newPass;
-    $this->db->close();
-  }
+
 
 }
 

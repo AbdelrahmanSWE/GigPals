@@ -12,8 +12,8 @@ class Singleton {
 		{
 			if(@self::$uniqueinstance == null)
 			{
-				require 'connect.php';
-				self::$uniqueinstance =  new mysqli($host, $dbUser, $dbPass, $dbName);
+				require 'connection.php';
+				self::$uniqueinstance =  new mysqli($host, $dbusername, $dbpassword, $dbname);
 			}
 			return self::$uniqueinstance;
 		}

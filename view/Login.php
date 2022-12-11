@@ -38,43 +38,27 @@
     <div class="forms">
         <div class="form-content">
           <div class="login-form">
-            <div id="login_title" class="title">Login</div>
-          <form action="#">
+            
+      </div>
+      <div class="login-form">
+      <div id="login_title" class="title">Login</div>
+          <form action="../controller/LoginController.php" method="post">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fa fa-user"></i>
-                <input type="text" placeholder="Username" required>
+                <input type="text" name="username" placeholder="Username" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
               </div>
-              <div class="text"><a href="#">Forgot password?</a></div>
+              
               <div id="login_submit" class="button input-box">
-                <input type="submit" value="submit">
+                <input type="submit" name="login" value="Login">
               </div>
-              <div id="signup_text" class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+              
             </div>
         </form>
-      </div>
-      <div class="login-form">
-        <div id="login_title" class="title">Login</div>
-      <form action="#">
-        <div class="input-boxes">
-          <div class="input-box">
-            <i class="fa fa-user"></i>
-            <input type="text" placeholder="Username" required>
-          </div>
-          <div class="input-box">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" required>
-          </div>
-          <div class="text"><a href="#">Forgot password?</a></div>
-          <div id="login_submit" class="button input-box">
-            <input type="submit" value="Submit">
-          </div>
-        </div>
-    </form>
   </div>
     </div>
     </div>

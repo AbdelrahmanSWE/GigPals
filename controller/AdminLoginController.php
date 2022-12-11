@@ -1,7 +1,7 @@
 <?php
 
-if(isset($_POST["submit"])){
-    include'../models/UserClass.php';
+if(isset($_POST["Login"])){
+    include'../models/AdminClass.php';
     if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $username=$_POST['username'];
         $password=$_POST['password'];
@@ -9,12 +9,11 @@ if(isset($_POST["submit"])){
         $true = $user->login($username, $password);
         if ($true == true) 
         {
-            header("location: ../views/admin_home.php");
+            header("location: ../view/adminpanel.php");
         }
         else 
         {
-            $param = "false";
-            header("location: ../index.php?id=$param");
+            header("location: ../index.html");
         }
     }
 }

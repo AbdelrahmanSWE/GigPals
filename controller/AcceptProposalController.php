@@ -1,10 +1,13 @@
 <?php
+session_start();
 
-
-if (isset($_POST['submit']) && $_SESSION['UserRole']){
+if (isset($_POST['acceptance']) && $_SESSION['UserRole']=="client"){
     include_once '../models/ProposalClass.php';
+    include_once '../models/PostClass.php';
     $proposal = new proposal();
-    $proposal->acceptProposal($PostID, $_POST['AcceptValue']);
+    $proposalpost = new Post();
+    $proposal->acceptProposal($_POST['PostID'], $_POST['acceptance']);
+    $proposalpost->postAcceptance($_POST['PPostID'],2);
 }
 
 

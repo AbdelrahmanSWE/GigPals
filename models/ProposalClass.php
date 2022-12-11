@@ -16,19 +16,24 @@
     function __construct()
     {
         include_once '../include/DatabaseConnectClass.php';
-        $db = new Database();
+        $this->db = new Database();
     }
 
 
     function createProposal($PDesc,$PBudget,$PostID,$FreeLancerID){
         $this->db->insert("INSERT INTO proposal(PDesc,PBudget,PostID,FreeLancerID) VALUES('$PDesc','$PBudget','$PostID','$FreeLancerID') ");
-        $this->db->close();
+        
+    }
+    
+    function displayProposals($PostID){
+       return $this->db->display("SELECT * FROM proposal join post ON post.PostID=proposal.PostID JOIN user ON proposal.FreeLancerID=user.UserID WHERE proposal.PostID='$PostID'");
     }
     
 
     function acceptProposal($ProposalID,$acceptValue){
-        if($acceptValue===true){
-            $this->db->update("UPDATE proposal SET PostAccepted=1 WHERE ID='$ProposalID'");
+        if($acceptValue==1){
+            $this->db->update("UPDATE proposal SET ProposalAccepted=1 WHERE ID='$ProposalID'");
+            $this->db->delete("DELETE FROM proposal WHERE ProposalAccepted=0");
             $this->db->close();
             return true;
         }

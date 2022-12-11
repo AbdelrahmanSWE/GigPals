@@ -9,7 +9,7 @@ class Database{
 
   function __construct()
   {
-    require_once 'connection.php';
+    include 'connection.php';
     $this->host=$host;
     $this->database=$dbname;
     $this->user=$dbusername;
@@ -57,7 +57,7 @@ class Database{
   function select($sql) {
 
     if (!$result = $this->conn->query($sql)) {
-      throw new Exception("can not make query :" . $sql);
+      
       return false;
     }
 
@@ -83,7 +83,7 @@ class Database{
     if ($result = $this->conn->query($sql)) {
       return true;
     } else {
-      throw new Exception("Error :SQL:".$sql);
+      
 
       return false;
     }
@@ -94,7 +94,7 @@ class Database{
   function delete($sql) {
     if(!$result=$this->conn->query($sql))
     {
-      throw new Exception("Error: not deleted");
+      
       return false;
     }
     else {

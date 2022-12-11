@@ -1,0 +1,90 @@
+
+.maincontainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:2px solid white;
+    background-color: white;
+    margin:75px;
+    width:50%; 
+    margin-top: 150px;
+    
+}
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    font-style: italic;
+    --bs-navbar-brand-color: #1B262C ;
+  }
+body{
+    background-color: #3282B8;
+}
+.adminlogin{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+.button{
+    color: #fff;
+    margin-top: 40px;
+  }
+.button input{
+    color: #fff;
+    background: #3282B8;
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+.title {
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+}
+.input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.input-box input:focus,
+    input:valid{
+    border-color: #3282B8;
+}
+.input-box i{
+    position: absolute;
+    color: #3282B8;
+    font-size: 17px;
+}
+i{color: #3282B8;}
+.text{
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+.title:before{
+    width: 20px;
+}
+.input-box{
+    margin-top: 30px;
+}
+.title:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 25px;
+    background: #3282B8;
+}

@@ -1,7 +1,7 @@
 <?php
 
 
-if(isset($_POST["submit"])){
+if(isset($_POST["login"])){
     include'../models/UserClass.php';
     if(!empty($_POST['username']) && !empty($_POST['password'])) {
         $username=$_POST['username'];
@@ -11,19 +11,19 @@ if(isset($_POST["submit"])){
         
         if ($true == true) 
         {
-            @$type=  $_SESSION['UserRole'];
+            @$type=$_SESSION['UserRole'];
             if($type=='freelancer') {
-                header("location: ../views/admin_home.php");
+                header("location: ../view/wallpage.php");
             }
             elseif($type=='client') {
-                header("location: ../views/student_home.php");
-
+                header("location: ../view/ClientProfile.php");
             }
+            echo "no role";
         }
         else 
         {
             $param = "false";
-            header("location: ../index.php?id=$param");
+            header("location: ../index.html?id=$param");
         }
     }
 }
